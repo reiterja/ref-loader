@@ -1,4 +1,4 @@
-module.exports = parse;
+const path = require('path');
 
 /**
  * Function to parse the source code.
@@ -16,7 +16,7 @@ function parse(src) {
   }
   
   let res = src.replace(/\(([\w-_~\/\.]+.(?:png|jpe?g|ico|gif))\)/ig, (imagePath) => {
-    const path = require(imagePath);
+    const path = require(path.resolve(imagePath));
     console.warn({path});
     return path;
   })
@@ -29,3 +29,5 @@ function parse(src) {
 // VM859:1 (3) ["test", 4, "testtest,test"]
 // VM859:1 (3) ["test", 9, "testtest,test"]
 // "undefinedundefined,undefined"
+
+module.exports = parse;
