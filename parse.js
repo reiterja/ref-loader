@@ -16,9 +16,9 @@ function parse(src) {
   }
   
   let res = src.replace(/\(([\w-_~\/\.]+.(?:png|jpe?g|ico|gif))\)/ig, (imagePath) => {
-    const path = require(path.resolve(imagePath));
-    console.warn({path});
-    return path;
+    const resolvedPath = require(path.resolve(imagePath));
+    console.warn({resolvedPath});
+    return resolvedPath;
   })
 
   return res;
