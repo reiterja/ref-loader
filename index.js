@@ -4,7 +4,7 @@
 const parse = require('./parse');
 
 module.exports = function(src, map, meta) {
-  console.log({src,map,meta})
+  // console.log({src,map,meta})
   const callback = this.async();
   try {
     const parsed = parse(src);
