@@ -1,5 +1,3 @@
-const path = require('path');
-
 /**
  * Function to parse the source code.
  * It extract and replace the path where wrapped in @startMark to @endMark
@@ -16,7 +14,7 @@ function parse(src) {
   }
   
   let res = src.replace(/\(([\w-_~\/\.]+.(?:png|jpe?g|ico|gif))\)/ig, (imagePath) => {
-    const resolvedPath = require(path.resolve(imagePath));
+    const resolvedPath = require(imagePath);
     console.warn({resolvedPath});
     return resolvedPath;
   })
