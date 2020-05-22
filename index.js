@@ -4,10 +4,10 @@
 const parse = require('./parse');
 
 module.exports = function(src, map, meta) {
-  //const options = loaderUtils.getOptions(this);
+  console.log({src,map,meta})
   const callback = this.async();
   try {
-    const product = `module.exports = ${parse(src, ref => `require("${ref}")`)}`;
+    const parsed = parse(src);
     callback(null, product, map, meta);
   } catch (e) {
     callback(e);
